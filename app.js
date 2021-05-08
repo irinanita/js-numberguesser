@@ -31,7 +31,16 @@ guessBtn.addEventListener("click", function () {
 
   // Validate
   if (isNaN(guess) || guess < min || guess > max) {
-    setMessage(`Please enter a number between ${min} and ${max}`,"green");
+    setMessage(`Please enter a number between ${min} and ${max}`, "red");
+  }
+
+  // Check if winning number
+  if (guess === winningNum) {
+    // Disable input
+    guessInput.disabled = true;
+    guessInput.style.borderColor = "green";
+    setMessage(`${winningNum} is correct, YOU WIN`, "green");
+  } else {
   }
 });
 
